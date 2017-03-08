@@ -34,6 +34,7 @@ html,body{width:100%;max-width:750px;margin:0 auto;}
 .box .listLine .w92{border:1px solid #1c2124;border-radius:5px;border-top:0;border-top-left-radius:0;border-top-right-radius:0;position:relative;}
 .box .listLine:before{content:'';width:96%;height:1rem;border-radius:1rem;display:block;position:absolute;top:-.5rem;left:2%;background:#0350a9;}
 .box .listLine ul{}
+.box .listLine .remind{text-align: center;font-size:10px;color:#6591c5;}
 h3{color:#ffe511;font-size:1.1rem;}
 
 .win-out{}
@@ -84,7 +85,7 @@ h3{color:#ffe511;font-size:1.1rem;}
 .rule ul{background:#1066c9;padding:10px 0;}
 .rule ul li{width:90%;margin:0 auto;}
 
-.bot{width:100%;height:5rem;line-height:5rem;padding:0 14px;position:fixed;bottom:0;background:rgba(0,0,0,.6);box-sizing: border-box;}
+.bot{width:100%;height:5rem;line-height:5rem;padding:0 14px;position:fixed;bottom:0;background:rgba(0,0,0,.6);box-sizing: border-box;z-index: 999;}
 .blue{border:1px solid #1b2329;background:#1476e8;-webkit-box-shadow:0 -4px 0 #15355a inset;box-shadow:0 -4px 0 #15355a inset;color:#fff;}
 .blue i:before{background:#1476e8;}
 .yellow{border:1px solid #1b2937;color:#433e01;background:#f1e420;-webkit-box-shadow:0 -4px 0 #6a5620 inset;box-shadow:0 -4px 0 #6a5620 inset;}

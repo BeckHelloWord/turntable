@@ -37,7 +37,7 @@
         </div>
         <div class="listTop"><img src="images/listTop.png" alt=""></div>
         <div class="list box">
-            <h2>获取名单</h2>
+            <h2>获奖名单</h2>
             <div class="listLine scroll">
                 <div class="w92">
                     <ul class="JQ-slide-content"></ul>
@@ -58,13 +58,14 @@
                     <li>
                         <h3>活动规则</h3>
                     </li>
-                    <li>体验金和宝象币当即到帐；<br/>实物奖品在活动结束后15个工作日内寄出。</li>
+                    <li>仅限受邀用户参加；<br/>体验金和宝象币当即到帐；<br/>实物奖品在活动结束后15个工作日内寄出。</li>
                     <br/>
                     <li>
                         <h3>参与方式</h3>
                     </li>
                     <li>在宝象平台内投任意散标满200元即可获得一次抽奖机会；<br/>投资金额(不含红包金额)在活动期限内可累加计算。</li>
                 </ul>
+                <p class="remind">本次活动解释权，归宝象金融所有</p>
             </div>
             <br><br><br>
             <div class="bot">
@@ -194,7 +195,7 @@
 
             function traversal() {
                 $.ajax({
-                    url: "/act-zxb-lottery/index.html",
+                    url: "/act-zxb-lottery/index.html?t="+new Date().getTime(),
                     data: "",
                     success: function (json) {
                         // alert(json.type)
@@ -255,28 +256,51 @@
                 var closeParent = $(this).parents(".a_layerBox");
                 closeParent.hide();
             });
-            //去投资标的链接
 
+            // 检查后台返回的标的
+            function checkUrl(id) {
+                if (typeof id == 'undefined') {
+                    //跳转投资列表
+                    return false;
+                }
+                return true;
+            }
+
+            //去投资标的链接
             function getInviteId() {
                 $.ajax({
                     url: '/act-zxb-lottery/go-invest.html',
                     success: function (json) {
-                        if (!json.type) {
-                            layer.open({
-                                content: json.message,
-                                skin: 'msg'
-                            });
-                        }
+                        // if (!json.type) {
+                        //     layer.open({
+                        //         content: json.message,
+                        //         skin: 'msg'
+                        //     });
+                        // }
 
-                        if (!/baoxiang/.test(navigator.userAgent)) {
-                            location.href="/lc/invest/detail/"+ json.investId +".html";
-                        }else{
-                            location.href="baoxiang://APPProjectInvesting?type=invest&investId="+json.investId;
+                        if (/baoxiang/.test(navigator.userAgent.toLocaleLowerCase())) {
+                            //app
+                            if (!checkUrl(json.investId)) {
+                                //投资列表
+                                location.href = "baoxiang://APPProjectInvesting?type=invest";
+                                return false;
+                            }
+                            location.href = "baoxiang://APPProjectInvesting?type=invest&investId=" + json.investId;
+
+                        } else {
+                            //H5
+                            if (!checkUrl(json.investId)) {
+                                location.href = "/lc/invest/list.html";
+                                return false;
+                            }
+                            location.href = "/lc/invest/detail/" + json.investId + ".html";
+
+
                         }
                     }
                 })
             }
-            $(".login-login,.go-login").on("click",function (e) {
+            $(".login-login,.go-login").on("click", function (e) {
                 getInviteId();
                 e.preventDefault();
             })
