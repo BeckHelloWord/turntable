@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="Keywords" content="涨薪宝">
+    <meta name="Description" content="涨薪宝">
+    <meta content="telephone=no" name="format-detection">
+    <title>涨薪宝</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/awardRotate.js"></script>
+    <script type="text/javascript" src="js/lanren.js"></script>
+    <script type="text/javascript" src="js/turntable.js"></script>
+    <script src="js/layer_mobile/layer.js"></script>
+    <script src="https://www.bxjr.com/assets/mobile/js/jq.Slide.js"></script>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="win-out"></div>
+        <div class="turn">
+            <div class="dish">
+                <div class="turnplate">
+                    <canvas class="item" id="wheelcanvas"></canvas>
+                    <a href="javascript:void(0)" class="pointer"><img src="images/turnplate-pointer.png" alt="">
+                        <div class="lottery-wrap">
+                            <p>抽奖</p>
+                            <p class="lottery-num">(<span class="js-lotteryNum">0</span>次)</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="listTop"><img src="images/listTop.png" alt=""></div>
+        <div class="list box">
+            <h2>获取名单</h2>
+            <div class="listLine scroll">
+                <div class="w92">
+                    <ul class="JQ-slide-content"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="time w92 clearfix">
+            <div class="fl timeImg"><img alt="" src="images/time.png"></div>
+            <div class="timeCon fl">
+                <h3>活动时间</h3>
+                <p> 2017年3月15日 00:00至2017年3月31日23:59</p>
+            </div>
+        </div>
+        <div class="rule box">
+            <h2>活动规则</h2>
+            <div class="listLine">
+                <ul class="w92">
+                    <li>
+                        <h3>活动规则</h3>
+                    </li>
+                    <li>体验金和宝象币当即到帐；<br/>实物奖品在活动结束后15个工作日内寄出。</li>
+                    <br/>
+                    <li>
+                        <h3>参与方式</h3>
+                    </li>
+                    <li>在宝象平台内投任意散标满200元即可获得一次抽奖机会；<br/>投资金额(不含红包金额)在活动期限内可累加计算。</li>
+                </ul>
+            </div>
+            <br><br><br>
+            <div class="bot">
+                <!--未登录-->
+                <div class="notLogin">
+                    <a href="/login/index.html?redirect=/topic/201702/zxb/index.html" class="blue btnStyle"><i></i>登录</a>
+                </div>
+                <div class="hasLogin clearfix">
+                    <p class="fl">当前账户:<span class="mobile">0</span>&nbsp;&nbsp;已投金额:<span class="leftAmount">0</span></p>
+                    <div class="loginInvest">
+                        <a href="" class="yellow btnStyle invest fr login-login"><i></i>去投资</a>
+                    </div>
+                </div>
+
+            </div>
+            <!--提交收货地址-->
+            <div class="a_layerBox a_formBox">
+                <div class="a_layerBg"></div>
+                <form id="a_addressForm" action="" class="a_addressForm a_layerCon">
+                    <div class="a_addressTitle">恭喜您</div>
+                    <p class="giftName">抽得AIRWEAR防雾霾口罩</p>
+                    <div class="a_addressConfirm">确认收货信息</div>
+                    <div class="a_addressCont">
+                        <label class="label"><i class="fl">收货人</i><span class="a_userName fl"></span></label>
+                        <label class="label"><i class="fl">联系电话</i><span class="a_mobile fl"></span></label>
+                        <label class="label a_address_txt">
+                            <i class="f_s fl">收货地址</i>
+                            <input type="text" placeholder="为确保您能收到，请填写详细地址" class="a_address_val fl" maxlength="25"/>
+                            <p class="empty"></p>
+                        </label>
+                        <button type="button" id="submit" class="submit blue btnStyle js-submit">提交<i></i></button>
+                    </div>
+                    <a href="javascript:void(0)" class="layerClose close"></a>
+                </form>
+            </div>
+            <!--领取成功-->
+            <div class="a_layerBox a_formSuccessBox js-formSuccessBox">
+                <div class="a_layerBg"></div>
+                <div class="a_layerCon">
+                    <div class="a_addressTitle">
+                        <p class="js-title">恭喜您</p>
+                    </div>
+                    <div class="a_addressConfirm js-con">领取成功<br/>奖品将于活动结束后<br/>15个工作日内寄出！</div>
+                    <div class="a_addressCont">
+                        <a href="javascript:void(0)" class="blue btnStyle close"><i></i><span class="js-ok">确认</span></a>
+                    </div>
+                    <a href="javascript:void(0)" class="layerClose close"><i class="before"></i><i class="after"></i></a>
+                </div>
+            </div>
+            <!--抽奖机会用完-->
+            <div class="a_layerBox a_noChanceBox js-noChanceBox">
+                <div class="a_layerBg"></div>
+                <div class="a_layerCon">
+                    <div class="a_addressTitle">
+                        <p>抽奖机会</p>
+                    </div>
+                    <div class="a_addressConfirm">十分抱歉<br/>抽奖机会已用完<br/></div>
+                    <div class="a_addressCont clearfix">
+                        <a href="javascript:void(0)" class="blue btnStyle fl close"><i></i>确认</a>
+                        <div class="loginInvest"><a href="javascript:void(0)" class="yellow btnStyle fr go-login">去投资</a></div>
+                    </div>
+                    <a href="javascript:void(0)" class="layerClose close"><i class="before"></i><i class="after"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var a_formBox = $(".a_formBox"), a_formSuccessBox = $(".a_formSuccessBox"), a_noChanceBox = $(".a_noChanceBox"), a_noWinBox = $(".a_noWinBox"), initial, flg = true;
+
+            function setAddress(giftName, userName, mobile, address) {
+                $('.giftName').html(giftName);
+                $('.a_userName').html(userName);
+                $(".a_mobile").html(mobile);
+                $(".a_address_val").val(address);
+                a_formBox.show();
+            }
+            //提交
+            $(".submit").on("click", function () {
+                var txt = $(this).siblings(".a_address_txt").find("input").val();
+                $.ajax({
+                    url: '/act-zxb-lottery/save-address.html',
+                    type: "post",
+                    data: { address: txt },
+                    success: function (json) {
+                        if (!json.type) {
+                            $(".empty").show().text(json.message);
+                            $(".a_address_val").bind("keyup input focus", function () {
+                                if ($(".a_address_val").val() != "") {
+                                    $(".empty").hide();
+                                }
+                            });
+                            return false;
+                        }
+                        $(".a_formBox").hide();
+                        alertCon('恭喜您', '领取成功<br/>奖品将于活动结束后<br/>15个工作日内寄出！', '确认');
+                    }
+                })
+            });
+            /*控制弹出框*/
+            function alertCon(title, con, ok) {
+                $('.js-formSuccessBox .js-title').text(title);
+                $('.js-formSuccessBox .js-con').html(con);
+                $('.js-formSuccessBox .js-ok').text(ok);
+                $('.js-formSuccessBox').show();
+            }
+            //滑 文字
+            function winAnimation(obj) {
+                var first = obj.find(".win").not('.on').eq(0);
+                animateNext(first);
+                function animateNext(first) {
+                    if (flg) {
+                        var now = first, range = 18 * Math.random();
+                        now.css({ top: range + "%" }).addClass("on");
+                        setTimeout(function () {
+                            now = now.next();
+                            if (now) {
+                                animateNext(now)
+                            }
+                        }, 6000)
+                    }
+
+                }
+            }
+
+
+            //遍历获奖名单
+
+            function traversal() {
+                $.ajax({
+                    url: "/act-zxb-lottery/index.html",
+                    data: "",
+                    success: function (json) {
+                        // alert(json.type)
+                        if (!json.type) {
+                            layer.open({
+                                content: json.message
+                            });
+                            return false;
+                        }
+
+                        initial = json;
+                        setturntable(initial);
+                        var html = "", winHtml = "";
+                        for (var i = 0, len = json.exchanges.length; i < len; i++) {
+                            html += '<li><span class="s1">' + json.exchanges[i].mobile + '</span><span class="s2">' + json.exchanges[i].giftName + '</span><span class="s3">' + json.exchanges[i].dateCreated + '</span></li>';
+                            if (json.exchanges[i].isGood) {
+                                winHtml += '<div class="win"><div class="win-con">恭喜 <span>' + json.exchanges[i].mobile + '</span> 获得 ' + json.exchanges[i].giftName + '</div></div>';
+                            }
+                        }
+
+                        $(".JQ-slide-content").html(html);
+                        $(".win-out").html(winHtml);
+
+                        setTimeout(function () {
+                            winAnimation($(".win-out"));
+                        }, 1000);
+
+                        if (!json.success) {
+                            $(".notLogin").show();
+                            $(".hasLogin").hide();
+                            return false;
+                        }
+
+                        $(".notLogin").hide();
+                        $(".hasLogin").show();
+
+                        $(".mobile").html(json.mobile);
+                        if (json.amount < 0) {
+                            json.amount = 0
+                        }
+                        $(".leftAmount").html(json.amount);
+                    }
+                });
+            }
+            traversal();
+            //获奖名单滚动
+            $(".scroll").Slide({
+                effect: "scroolTxt",
+                autoPlay: true,
+                speed: "normal",
+                timer: 2000,
+                steps: 1
+            });
+
+
+            //弹框 关闭
+            $(".close").on("click", function (e) {
+                var closeParent = $(this).parents(".a_layerBox");
+                closeParent.hide();
+            });
+            //去投资标的链接
+
+            function getInviteId() {
+                $.ajax({
+                    url: '/act-zxb-lottery/go-invest.html',
+                    success: function (json) {
+                        if (!json.type) {
+                            layer.open({
+                                content: json.message,
+                                skin: 'msg'
+                            });
+                        }
+
+                        if (!/baoxiang/.test(navigator.userAgent)) {
+                            location.href="/lc/invest/detail/"+ json.investId +".html";
+                        }else{
+                            location.href="baoxiang://APPProjectInvesting?type=invest&investId="+json.investId;
+                        }
+                    }
+                })
+            }
+            $(".login-login,.go-login").on("click",function (e) {
+                getInviteId();
+                e.preventDefault();
+            })
+        </script>
+
+        <div style="display:none">
+            <script>
+                var _hmt = _hmt || [];
+                (function () {
+                    var s = document.getElementsByTagName("script")[0];
+                    //百度统计
+                    var hm = document.createElement("script");
+                    hm.src = "//hm.baidu.com/hm.js?9d8516b072af1baf608b889209361cbe";
+                    s.parentNode.insertBefore(hm, s);
+                    //友盟统计
+                    var ym = document.createElement("script");
+                    ym.src = "//s4.cnzz.com/z_stat.php?id=1258672745";
+                    s.parentNode.insertBefore(ym, s);
+                })();
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
