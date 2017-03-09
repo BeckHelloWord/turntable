@@ -73,8 +73,8 @@ h3{color:#ffe511;font-size:1.1rem;}
 .list .listLine ul{}
 .list .listLine ul li{color:#fff;font-size:1rem;}
 .list .listLine ul li span{display:inline-block;text-align:center;}
-.list .listLine ul li .s1{width:27%;color:#ffe300;}
-.list .listLine ul li .s2{width:50%;font-size:0.9rem;}
+.list .listLine ul li .s1{width:30%;color:#ffe300;}
+.list .listLine ul li .s2{width:47%;font-size:0.9rem;}
 .list .listLine ul li .s3{width:23%;}
 
 .time{padding:.5rem 0 1rem;border:1px solid #1c2124;border-radius:5px;margin-top:2.6rem;text-align:left;background:#1066c9;color:#fff;font-size:.9rem;}
@@ -117,7 +117,7 @@ a.yellow:hover{color:#433e01;}
 .a_layerBox .a_layerCon .a_addressCont label.a_address_txt{position:relative;}
 .a_layerBox .a_layerCon .a_addressCont label.a_address_txt .empty{line-height:1;position:absolute;left:6%;top:5.2rem;color:#fff;font-size:.8rem;}
 .a_layerBox .a_layerCon .a_addressCont .label i{width:30%;}
-.a_layerBox .a_layerCon .a_addressCont .label input{width:95%;height:1.8rem;line-height:1rem;border:0;padding:.6rem 0 .6rem 5%;margin:-.5rem 0 1.4rem;;background:#fff;border-radius:1.4rem;-webkit-border-radius:1.4rem;}
+.a_layerBox .a_layerCon .a_addressCont .label input{width:95%;height:1.8rem;line-height:1.2rem;border:0;padding:.6rem 0 .6rem 5%;margin:-.5rem 0 1.4rem;background:#fff;border-radius:1.4rem;-webkit-border-radius:1.4rem;}
 .a_layerBox .a_layerCon .a_addressCont .label ::-webkit-input-placeholder {color:#999;font-size:1rem;}
 .a_layerBox .a_layerCon .a_addressCont .btnStyle{width:100%;}
 .layerClose{width:3.6rem;height:3.6rem;background:#fed82f;border-radius:50%;-webkit-border-radius:50%;display:block;position:absolute;top:8%;right:0;background:url(../images/close.png) no-repeat;background-size:100%;}
@@ -144,12 +144,12 @@ a.yellow:hover{color:#433e01;}
 .box h2{line-height:2.2rem;}
 .time{font-size:.8rem;}
 .a_layerBox .a_layerCon{top:2%;}
-.a_layerBox .a_layerCon .a_addressCont .label input{height:1.2rem;}
 .a_formBox .a_layerCon .giftName{font-size:1rem;padding-top:.4rem;}
 .a_formBox .a_layerCon .a_addressConfirm{font-size:.9rem;}
 .a_layerBox .a_layerCon .a_addressCont label .a_userName,.a_layerBox .a_layerCon .a_addressCont label .a_mobile{height:1.8rem;line-height:1.6rem;}
 .a_layerBox .a_layerCon .a_addressCont .label ::-webkit-input-placeholder{line-height:1.6rem;}
-.a_layerBox .a_layerCon .a_addressCont label.a_address_txt .empty{top:4.5rem;}
+.a_layerBox .a_layerCon .a_addressCont label.a_address_txt .empty{top:5rem;}
+.hasLogin .btnStyle{width:22%;}
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {/*ipad*/
     .listTop {margin-top:0;}
@@ -211,16 +211,25 @@ a.yellow:hover{color:#433e01;}
 
 @media only screen and (min-device-width : 320px){/*横屏*/
     .turnplate{
-        min-height: 288px;
+        /*min-height: 288px;*/
     }
 }
 @media only screen and (min-device-width : 375px){/*横屏*/
     .turnplate{
-        min-height: 337.5px;;
+        /*min-height: 337.5px;;*/
     }
 }
 @media only screen and (min-device-width : 414px){/*横屏*/
     .turnplate{
-        min-height: 372.6px;;
+        /*min-height: 372.6px;;*/
     }
+
 }
+/*@media only screen and (min-width:320px)and (max-height:479px){
+.turnplate .pointer{
+    top:35%!important;
+  }
+     .notLogin{
+        background: yellow!important;
+    }
+}*/

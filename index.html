@@ -16,6 +16,7 @@
     <script type="text/javascript" src="js/turntable.js"></script>
     <script src="js/layer_mobile/layer.js"></script>
     <script src="https://www.bxjr.com/assets/mobile/js/jq.Slide.js"></script>
+    <script src="../../js/wechatLink-1.1.js"></script>
 
 </head>
 
@@ -65,7 +66,7 @@
                     </li>
                     <li>在宝象平台内投任意散标满200元即可获得一次抽奖机会；<br/>投资金额(不含红包金额)在活动期限内可累加计算。</li>
                 </ul>
-                <p class="remind">本次活动解释权，归宝象金融所有</p>
+                <p class="remind">本次活动解释权归宝象金融所有</p>
             </div>
             <br><br><br>
             <div class="bot">
@@ -195,7 +196,7 @@
 
             function traversal() {
                 $.ajax({
-                    url: "/act-zxb-lottery/index.html?t="+new Date().getTime(),
+                    url: "/act-zxb-lottery/index.html?t=" + new Date().getTime(),
                     data: "",
                     success: function (json) {
                         // alert(json.type)
@@ -271,12 +272,13 @@
                 $.ajax({
                     url: '/act-zxb-lottery/go-invest.html',
                     success: function (json) {
-                        // if (!json.type) {
-                        //     layer.open({
-                        //         content: json.message,
-                        //         skin: 'msg'
-                        //     });
-                        // }
+                         if (json.message == "活动不存在或无效") {
+                             layer.open({
+                                 content: json.message,
+                                 skin: 'msg'
+                             });
+                             return false;
+                         }
 
                         if (/baoxiang/.test(navigator.userAgent.toLocaleLowerCase())) {
                             //app
@@ -306,6 +308,23 @@
             })
         </script>
 
+        <script>
+            var wechatShare = new WeChatShare();
+            var shareData = {
+                shareConfig: {
+                    title: "",
+                    desc: "",
+                    link: '',
+                    imgUrl: ""
+                },
+                menuList: {
+                    menuList: [
+                    ]
+                },
+                callback: function () { }
+            };
+            wechatShare.init(shareData);
+        </script>
         <div style="display:none">
             <script>
                 var _hmt = _hmt || [];
